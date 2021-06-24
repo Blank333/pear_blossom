@@ -26,11 +26,10 @@ RailsAdmin.config do |config|
     # Use sorcery's before filter to auth users
     require_login
   end
-  config.current_user_method(&:current_user)
   config.parent_controller = 'ApplicationController'
 
   config.authorize_with do |controller|
-    redirect_to main_app.root_path unless current_user.try(:admin?)
+    redirect_to main_app.root_path unless current_user.admin?
   end
 
   

@@ -1,0 +1,37 @@
+<%= form_with(model: booking) do |form| %>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :user_id %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :days %>
+    <%= form.number_field :days %>
+  </div>
+
+  <div class="field">
+    <%= form.label :occupants %>
+    <%= form.number_field :occupants %>
+  </div>
+
+  <div class="field">
+    <%= form.label :food %>
+    <%= form.check_box :food %>
+  </div>
+
+  <div class="field">
+    <%= form.label :room_id %>
+    <%= form.text_field :room_id %>
+  </div>
+  
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

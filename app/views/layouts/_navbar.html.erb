@@ -38,16 +38,23 @@
                   <%= link_to "<strong>Sign up</strong>".html_safe, "users/new" %>
                 </div>
               <% end %>
-              <div class="button is-primary">
+              
                 <% if logged_in? %>
-                  <% if user.is_admin? %>
-                    <%= link_to "<strong>Admin Panel</strong>".html_safe, "/admin" %>
+                  <% if user.admin? %>
+                    <div class="button is-primary">
+                      <%= link_to "<strong>Admin Panel</strong>".html_safe, "/admin" %>
+                    </div>
                   <% end %>  
-                  <%= link_to "<strong>Logout</strong>".html_safe, logout_path %>
+
+                <div class="button is-primary">
+                    <%= link_to "<strong>Logout</strong>".html_safe, logout_path %>
+                </div>
                 <% else %>
+                <div class="button is-primary">
                   <%= link_to "<strong>Login</strong>".html_safe, login_path %>
+                </div>
                 <% end %>
-              </div>
+              
             </div>
           </div>
         </div>

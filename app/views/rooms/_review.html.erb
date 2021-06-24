@@ -2,6 +2,9 @@
   <h3>Reviewed by <%= review.user_name %></h3>
   <p class="comment"><%= review.body %></p>
   <p class="has-text-black">Posted <%= distance_of_time_in_words(review.created_at, Time.now) %> ago</p>
-  <%= link_to "Delete", room_review_path(@room, review),class: "has-text-danger", method: :delete, data: {confirm: "Do you really wanna delete the comment?" } %>
+  <% if logged_in? and current_user.admin? %>
+    <%= link_to "Delete", room_review_path(@room, review),class: "has-text-danger", method: :delete, data: {confirm: "Do you really wanna delete the comment?" } %>
+  <% end %>
+
 </div>
 <hr>

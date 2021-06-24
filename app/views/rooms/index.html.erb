@@ -8,13 +8,13 @@
       <% if room.image.exists? %>  
         <%= link_to (image_tag(room.image_file_name, size: '200x200')), room_path(room) %>
       <% end %>
-      <% if logged_in? %>
+      <% if logged_in? and current_user.admin? %>
         <%= link_to "Edit", edit_room_path(room), class: "has-text-success" %>
         <%= link_to "Delete", room_path(room) ,class: "has-text-danger", method: :delete, data: {confirm: "Do you really wanna delete the room?"} %>
       <% end %>
     </li>
   <% end %>
 </ul>
-<% if logged_in? %>
+<% if logged_in? and current_user.admin? %>
   <%= link_to "Create new room", "rooms/new" , class: "has-text-success"%>
 <% end %>
