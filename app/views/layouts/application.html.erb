@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pear Blossom</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="has-background-grey-dark">
+  <%= render "layouts/navbar", :user => user %>
+
+    <div class="container has-background-grey-dark has-text-primary-dark">
+    
+      <p class="flash">
+        <%= flash.notice %>
+      </p>
+
+      <%= yield %>
+
+    </div>
+  
+  <%= render "layouts/footer" %>
+
+  </body>
+</html>

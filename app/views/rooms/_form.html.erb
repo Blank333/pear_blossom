@@ -1,0 +1,32 @@
+<%= form_for(@room, html: {multipart: true}) do |f| %>
+  <ul>
+  <% @room.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :room_number %><br />
+    <%= f.text_field :room_no %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_area :price %>
+  </p>
+  <p>
+      <% if @room.image.exists? %>
+        <%= image_tag @room.image_file_name, size: '300x300'%><br/>
+      <% end %>
+
+      <%= f.label :image, "Attach a New Image" %><br />
+      <%= f.file_field :image %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<%= link_to "<< Back to all rooms", rooms_path %>

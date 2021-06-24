@@ -1,0 +1,22 @@
+<p class='content'>
+    <% if @room.image.exists? %>
+        <%= image_tag @room.image_file_name, size: '500x500' %>
+    <% end %>
+    <h1>Room:</h1> <%= @room.room_no %>
+    <h1>About the room:</h1> <%= @room.description %>
+    <h1>Price:</h1>  <%= @room.price %>
+
+</p>
+
+<div class="button is-primary">
+Book now!
+</div>
+<hr>
+
+<h2>Reviews (<%= @room.reviews.size%>):</h2>
+<hr>
+<%= render partial: 'rooms/review', collection: @room.reviews %>
+<% if logged_in? %>
+    <%= render partial: 'reviews/form' %>
+<% end %>
+<%= link_to "<< Back to all rooms", rooms_path %>

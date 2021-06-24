@@ -1,0 +1,49 @@
+@import 'bulma';
+
+$primary_color: #AAA;
+$text_color: #AAA;
+
+body {
+  font: {
+    family: Verdana, Helvetica, Arial;
+    size: 14px;
+
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  img {
+    border: none;
+  }
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+.footer{
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: black;
+}
+
+h1{
+ 
+  font-size: 25px;
+}
+
+h2{
+  font-size: 20px;
+}
+h3{
+  font-size: 18x;
+}
+h4{
+  font-size: 16px;
+}
