@@ -4,8 +4,10 @@ class ReviewsController < ApplicationController
     def create
         @room = Room.find(params[:room_id])
         @review = @room.reviews.create(review_params)
+        @user = User.find(current_user.id)
+        @review.user_name = @user.user_name
         redirect_to room_path(@room)
-      end
+    end
 
 
 

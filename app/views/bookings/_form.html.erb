@@ -1,23 +1,18 @@
-<%= form_with(model: booking) do |form| %>
+<%= form_for [ @room, @booking ] do |form| %>
 
   <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :user_id %>
-  </div>
-  
-  <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name , :required => true %>
   </div>
 
   <div class="field">
     <%= form.label :days %>
-    <%= form.number_field :days %>
+    <%= form.number_field :days , :required => true %>
   </div>
 
   <div class="field">
     <%= form.label :occupants %>
-    <%= form.number_field :occupants %>
+    <%= form.number_field :occupants, :required => true  %>
   </div>
 
   <div class="field">
@@ -27,11 +22,13 @@
 
   <div class="field">
     <%= form.label :room_id %>
-    <%= form.text_field :room_id %>
+    <%= form.select(:room_id, @room_options) %>
   </div>
   
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Book", class: "button is-light" %>
+    <%= link_to "Back", room_path(@room.id), class: "button is-light" %>
   </div>
+  <hr>
 <% end %>

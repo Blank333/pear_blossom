@@ -15,6 +15,7 @@ class RoomsController < ApplicationController
 
   def new
     @room = Room.new
+    @booking = Booking.new
   end
 
   def create

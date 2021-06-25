@@ -3,10 +3,6 @@
 
 <%= form_for [ @room, @review ] do |f| %>
   <p>
-    <%= f.label :your_name %><br/>
-    <%= f.text_field :user_name %>
-  </p>
-  <p>
     <%= f.label :review %><br/>
     <%= f.text_area :body %>
   </p>
