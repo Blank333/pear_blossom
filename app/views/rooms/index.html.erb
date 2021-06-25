@@ -5,16 +5,18 @@
     <% @rooms.each do |room| %>
         <p class="has-text-centered "><%= link_to "Room: #{room.room_no} ", room_path(room) %></p>
         <br />
-        <div class="is-flex">
+        <div class="is-flex is-justify-content-center">
         <% if room.image.exists? %>  
           <%= link_to (image_tag(room.image_file_name, size: '200x200')), room_path(room) %>
         <% end %>
         </div>
 
-        <% if logged_in? and current_user.admin? %>
-          <%= link_to "Edit", edit_room_path(room), class: "has-text-success" %>
-          <%= link_to "Delete", room_path(room) ,class: "has-text-danger", method: :delete, data: {confirm: "Do you really wanna delete the room?"} %>
-        <% end %>
+        <div class="has-text-centered">
+          <% if logged_in? and current_user.admin? %>
+            <%= link_to "Edit", edit_room_path(room), class: "has-text-success" %>
+            <%= link_to "Delete", room_path(room) ,class: "has-text-danger", method: :delete, data: {confirm: "Do you really wanna delete the room?"} %>
+          <% end %>
+        </div>
 
     <% end %>
 <div>

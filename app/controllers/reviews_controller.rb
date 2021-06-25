@@ -3,10 +3,18 @@ class ReviewsController < ApplicationController
   
     def create
         @room = Room.find(params[:room_id])
-        @review = @room.reviews.create(review_params)
-        @user = User.find(current_user.id)
-        @review.user_name = @user.user_name
-        redirect_to room_path(@room)
+
+        @review = @room.reviews.new(review_params)
+        @review.user_name = current_user.user_name
+        respond_to do |format|
+            if @review.save
+              format.html { redirect_to room_path(@room), notice: "Review was successfully posted." }
+              format.json { render :show, status: :created, location: @review }
+            else
+              format.html { render :new, status: :unprocessable_entity }
+              format.json { render json: @review.errors, status: :unprocessable_entity }
+            end
+          end
     end
 
 

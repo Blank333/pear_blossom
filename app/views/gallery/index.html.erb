@@ -1,0 +1,8 @@
+ <div class="is-flex is-flex-wrap-wrap is-justify-content-center">
+    <% @images.each do |image| %>
+        <div class="px-3 py-3">
+            <%= image_tag ("gallery/#{image.split('/').last}"), size: "250x250" %>            
+           
+        </div>
+    <% end %>
+</div>
