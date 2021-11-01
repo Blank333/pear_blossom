@@ -56,3 +56,27 @@ Open https://locahost:3000
 
 * Database: 
   SQLite 1.4.2
+
+
+# Docker Setup
+* Install docker
+* See your images:
+```
+docker images
+```
+
+This should list all the images.
+* Go to this directory (CD) then run this command:
+```
+docker build ./ -t pear-blossom-image
+```
+
+* You should see the image created.
+```
+docker images
+```
+
+* Start your image in a container using this command:
+```
+docker run -p 3000:3000 -t -i --rm --user deploy -w /home/deploy/pearblossom pear-blossom-image bash
+```
